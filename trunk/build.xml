@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+
+<project name="JavaProxy" basedir="." default="dist">
+	<property name="src" value="src" />
+	<property name="web" value="web" />
+	<property name="classes" value="${web}/WEB-INF/classes" />
+	<property name="warfile" value="JavaProxy.war" />
+	<property name="tomcat" value="/home/prasad/Tomcat" />
+	
+	<path id="classpath">
+		<pathelement location="${tomcat}/common/lib/servlet-api.jar"/>
+		<pathelement location="${web}/WEB-INF/lib/htmlparser.jar"/>
+		<pathelement location="${web}/WEB-INF/lib/htmllexer.jar"/>
+	</path>
+	
+	<target name="init">
+		<mkdir dir="${classes}"/>
+	</target>
+		
+	<target name="clean">
+		<delete dir="${classes}"/>
+	</target>
+		
+	<target name="build" depends="init">
+		<javac srcdir="${src}" destdir="${classes}" debug="true">
+			<classpath refid="classpath" />
+		</javac>
+	</target>
+	
+	<target name="dist" depends="build">
+		<jar basedir="${web}" destfile="${warfile}" />
+	</target>
+	
+</project>
+	
+	
