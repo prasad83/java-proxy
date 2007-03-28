@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+
+<web-app>
+	<servlet>
+		<servlet-name>JProxyServlet</servlet-name>
+		<servlet-class>prasad.javaproxy.servlet.JProxyServlet</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>JProxyServlet</servlet-name>
+		<url-pattern>/jproxy</url-pattern>
+	</servlet-mapping>
+</web-app>
